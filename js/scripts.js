@@ -8,12 +8,14 @@ var closestSquare = function(length){
     counter++;
   }
   // alert("Message length: " + length + "\nSquare: " + square);
-  return counter;
+  debugger
+  return Math.sqrt(square);
 }
 
 var cryptoSquare = function(textMessage){
   //strip whitespace, punctuation, symbols from user input
   var message = textMessage.toLowerCase().replace(/\s+/g, '');
+  debugger
   //get the perfect perfect square for given message
   var squareSide = closestSquare(message.length);
   //create a square 2D array to hold Message
@@ -39,11 +41,13 @@ var cryptoSquare = function(textMessage){
   for (var x = 0; x < squareSide; x++) { //<= x-axis
     for (var y = 0; y < squareSide; y++) { //<= y-axis
       if (index < message.length){
-        if ((index + 1) % 5 === 0){
+        if ((index % 5) === 0){
           cryptoMessage += " ";
         }
+        if (cryptoArray !== undefined){
          cryptoMessage += cryptoArray[x][y];
-        index++;
+         index++;
+        }
       } else {
         break;
       }
